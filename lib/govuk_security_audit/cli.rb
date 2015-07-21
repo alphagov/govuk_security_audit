@@ -7,8 +7,11 @@ require "govuk_security_audit/scanner"
 
 module GovukSecurityAudit
   class CLI < Thor
+    class_option :skip_update, type: :boolean, default: false
+
     desc "github USER REPO [REF]", "check the Github repo USER/REPO at an optional REF. Defaults to master."
     def github(user, repo, ref="master")
+      update unless options[:skip_update]
       uri = URI.parse("https://raw.githubusercontent.com/#{user}/#{repo}/#{ref}/Gemfile.lock")
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
@@ -29,6 +32,7 @@ module GovukSecurityAudit
 
     desc "check [PATH]", "check the Gemfile at PATH, or the current directory."
     def check(path=Dir.pwd)
+      update unless options[:skip_update]
       scanner    = Scanner.new(path)
       vulnerable = false
 
