@@ -12,6 +12,10 @@ module GovukSecurityAudit
 
       @root = File.dirname(path)
       @database = Bundler::Audit::Database.new
+
+      # Stop Bundler trying to find a Gemfile to accompany our Lockfiles
+      ENV["BUNDLE_GEMFILE"] = "Dummy"
+
       @lockfile = Bundler::LockfileParser.new(File.read(path))
     end
   end
