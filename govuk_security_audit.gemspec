@@ -8,6 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = GovukSecurityAudit::VERSION
   spec.authors       = ["Government Digital Service"]
   spec.email         = ["govuk-dev@digital.cabinet-office.gov.uk"]
+  spec.licenses      = ["MIT"]
 
   spec.summary       = %q{Check repos for gem vulnerabilities}
   spec.description   = %q{Wraps bundler-audit gem to check specific repos for gem vulnerabilities}
@@ -21,6 +22,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.9"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "gem_publisher", "1.5.0"
-  spec.add_dependency "bundler-audit"
-  spec.add_dependency "thor"
+  spec.add_dependency "bundler-audit", "~> 0.4.0"
+  spec.add_dependency "thor", "~> 0.19"
 end
