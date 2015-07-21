@@ -11,7 +11,6 @@ module GovukSecurityAudit
 
     desc "github USER REPO [REF]", "check the Github repo USER/REPO at an optional REF. Defaults to master."
     def github(user, repo, ref="master")
-      update unless options[:skip_update]
       uri = URI.parse("https://raw.githubusercontent.com/#{user}/#{repo}/#{ref}/Gemfile.lock")
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
