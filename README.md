@@ -46,3 +46,9 @@ Check a specific branch on Github:
 ```
 govuk_security_audit github alphagov whitehall upgrade-rails
 ```
+
+Checks but ignores specific vulnerabilities
+
+```
+govuk_security_audit check ~/govuk/whitehall --ignore OSVDB-131677 advisory
+```
