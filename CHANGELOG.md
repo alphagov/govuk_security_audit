@@ -1,3 +1,7 @@
+## 0.2.0
+
+- Supports `--ignore` option to skip given vulnerabilities
+
 ## 0.1.2
 
 - Support being run from outside a Bundler environment
